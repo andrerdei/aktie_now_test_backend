@@ -43,6 +43,8 @@ router.get('/:collectionId', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const { name } = req.body;
+
+    console.log()
     try {
         const collectionBook = await Collection.create(req.body);
 
@@ -53,8 +55,7 @@ router.post('/', async (req, res) => {
     } catch (err){
         if(await Collection.findOne({ name })) {
             return res.status(400).send({
-                req: req.body,
-                error: 'Book name already registered'
+                error: err
             });
         }
 
