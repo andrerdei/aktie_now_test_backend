@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 
     } catch (err){
         res.status(400).send({
-            error: 'Listing failed, please try again'
+            error: err
         });
     }
 });
@@ -36,7 +36,7 @@ router.get('/:collectionId', async (req, res) => {
 
     } catch (err){
         res.status(400).send({
-            error: 'Non registered book, please try again'
+            error: err
         });
     }
 });
@@ -60,7 +60,7 @@ router.post('/', async (req, res) => {
         }
 
         res.status(400).send({
-            error: 'Registration failed, please try again'
+            error: err
         });
     }
 });
@@ -81,7 +81,7 @@ router.put('/:collectionId', async (req, res) => {
 
     } catch (err){
         res.status(400).send({
-            error: 'Editing failed, please try again'
+            error: err
         });
     }
 });
@@ -95,7 +95,7 @@ router.delete('/:collectionId', async (req, res) => {
 
     } catch (err){
         res.status(400).send({
-            error: 'Error removing the book, please try again'
+            error: err
         });
     }
 });
