@@ -8,6 +8,9 @@ const router = express.Router();
 router.use(authMiddleware);
 
 router.get('/', async (req, res) => {
+
+    console.log(req.body)
+    
     try {
         const collectionList = await Collection.find();
 
@@ -44,6 +47,8 @@ router.get('/:collectionId', async (req, res) => {
 router.post('/', async (req, res) => {
     const { name } = req.body;
 
+    console.log(req.body)
+
     try {
         const collectionBook = await Collection.create(req.body);
 
@@ -67,6 +72,8 @@ router.post('/', async (req, res) => {
 router.put('/:collectionId', async (req, res) => {
     const { title, genre, description } = req.body;
 
+    console.log(req.body)
+
     try {
         const collectionBook = await Collection.findByIdAndUpdate(req.params.collectionId, { title, genre, description }, { new: true });
 
@@ -86,6 +93,9 @@ router.put('/:collectionId', async (req, res) => {
 });
 
 router.delete('/:collectionId', async (req, res) => {
+
+    console.log(req.body)
+
     try {
         await Collection.findByIdAndRemove(req.params.collectionId);
 
