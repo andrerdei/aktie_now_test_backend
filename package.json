@@ -4,7 +4,8 @@
   "description": "Application backend",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "dev": "set NODE_ENV=test && nodemon src/index.js",
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,6 +20,7 @@
     "mongoose": "^5.11.13"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "nodemon": "^2.0.7"
   }
 }
